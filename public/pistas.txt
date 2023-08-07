@@ -1,0 +1,105 @@
+% *******************************************
+% *********** COMANDOS LARAVEL **************
+% *******************************************
+
+- 1. crear un proyecto laravel
+    # composer create-project --prefer-dist laravel/laravel practica2icei
+    # cd practica2icei\
+    # php artisan serve
+    # code .
+    # copiamos este archivo en el nuevo proyecto (pistas.txt)
+
+- 2. instalamos laravel ui
+    # composer require laravel/ui
+    # php artisan ui bootstrap --auth
+
+- 3. creammos la base de datos y configuramos el archivo .env
+
+- 4. creamos migraciones
+    # php artisan migrate
+    (ejecuta todas las migraciones, es decir creara la tabla
+
+    # npm install
+    (para prefonfigurar toda la interfaz)
+
+    # npm install laravel-mix --save-dev
+    (PROBEMOS ETE COMANDO NO ESTOY SEGURO)
+
+    # npm run dev
+    (para correr en tiempo real)
+
+    # npm run build
+    (para construir los archivos y no tocarlos)
+
+- 5. craer un modelo y migraciones
+    # php artisan make:model Person --migration
+    (si escribimos --migration nos creara la migracion que es la creacion automatica de la tabla
+     deberemos crear los campos de la tanla en migrations)
+
+    # nos vamos la migracion y coloacmos los campos de nuestra tabla en papel
+
+- 6. editamos el modelo fillable
+    protected $fillable = [
+        'nameCourse',
+        'timeDays',
+        'price',
+        'description',
+    ];
+
+- 7. crear un controlador
+    # php artisan make:controller PersonController --resource
+    (si tene el --resourse te creara los metodos inder, show, etc dentro el controlador)
+
+- 8. creamos una carpeta dentro la carpeta "view" para nuestras vistas ejemplo "person" y dentro de esta carpeta
+    create.blade.php
+    edit.blade.php
+    index.blade.php
+    show.blade.php
+
+    # y dentro de estos archivos
+        @extends('layout.app')
+        @section('content')
+
+        @endsection
+
+- 9. colocamos nuestra ruta general en las rutas
+        Route::resource('courses', CourseController::class);
+
+- 10 nos vamos al controlador
+
+
+
+
+
+
+    # php artisan migrate
+    (ejecuta todas las migraciones, es decir creara la tabla)
+
+    # php artisan migrate --path=2023_07_23_145023_create_people_table
+    (solo para crear la migracion de una tabla especifica)
+
+    ! borrar
+    # php artisan migrate:reset
+    (elimina las tablas y datos de migraciones)
+
+- creamos rutas
+    # Route::resource('persona', PersonController::class);
+    ( esta ruta al tener la cadena resource abarcara todos los prodedimientos de PersonController)
+
+    # php artisan route:list
+    (Para verificar que la ruta se implemento correctamente)
+
+- creacino de factories y seeders
+    # php artisan make:factory PersonFactory
+    (crea el archivo de factories que son datos que se ingresaran a la tabla app/database/factories)
+
+    # Person::factory()->create();
+    (llenamos la fila en app/database/seeders)
+
+    # php artisan db:seed DatabaseSeede
+    (ejecutamos los seedres)
+
+- creamos plantilla
+    1. En la carpeta view creamos una carpeta lamada "layouts"
+    2. dentro de esta creamos app.blade.php con una estructura basica html
+
